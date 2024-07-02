@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap-trial'
-import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin'
+import gsap from 'gsap'
+
 import LogoS from '../../../assets/images/logo-s.png'
 import './index.scss'
 
@@ -10,7 +10,11 @@ const Logo = () => {
   const solidLogoRef = useRef()
 
   useEffect(() => {
-    gsap.registerPlugin(DrawSVGPlugin)
+    const outlineLength = outlineLogoRef.current.getTotalLength()
+    gsap.set(outlineLogoRef.current, {
+      strokeDasharray: outlineLength,
+      strokeDashoffset: outlineLength,
+    })
 
     gsap
       .timeline()
@@ -18,8 +22,8 @@ const Logo = () => {
         duration: 1,
         opacity: 1,
       })
-      .from(outlineLogoRef.current, {
-        drawSVG: 0,
+      .to(outlineLogoRef.current, {
+        strokeDashoffset: 0,
         duration: 20,
       })
 
@@ -56,6 +60,8 @@ const Logo = () => {
           className="svg-container"
           transform="translate(0 457) scale(.1 -.1)"
           fill="none"
+          stroke="black"
+          strokeWidth="5"
         >
           <path
             ref={outlineLogoRef}
