@@ -11,8 +11,7 @@ const Home=()=> {
     const [letterClass, setLetterClass] = useState('text-animate')
 
     const nameArray = ['h', 'o', 'u', 'r', 'a', 'v']
-    const jobArray = ['w','e','b',' ','d','e','v','e','l','o','p','e','r','.']
-
+    const jobArray = ['S','o','f','t','w','a','r','e',' ','T','e','s','t','e','r','.']
     useEffect(() => {
         
         let timeoutId = setTimeout(() => {
@@ -43,7 +42,7 @@ const Home=()=> {
             idx={22}/>
             
             </h1>
-            <h2>Frontend Developer / Javascript Expert / React Expert</h2>
+            <h2>SQA Engineer / Manual Testing / Automation Testing</h2>
             <Link to="/contact" className="flat-button">CONTACT ME</Link>
         </div>
         <Logo />
